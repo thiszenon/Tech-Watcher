@@ -1,0 +1,45 @@
+#Configuration par défaut de Tech Watcher
+
+sources:
+  github:
+    enabled: false
+    check_interval: 60
+    languages: ["Python", "JavaScript", "java"]
+
+  reddit:
+    enabled: false
+    check_interval: 120
+    subreddits: ["technology", "programming","MachineLearning"] #Aouter autres subreddits
+  rss:
+    enabled: false
+    check_interval: 180
+    feeds:
+      - "https://towardsdatascience.com/feed"
+      - "https://medium.com/feed/tag/technology"
+
+notifications:
+  enabled: true
+  sound: true
+  duration: 10 # Durée en secondes
+  max_per_hours: 6 # Nombre maximum de notifications par heure
+
+user:
+  interests:
+    -"python"
+    -"machine-learning"
+    -"blockchain"
+    -"cybersecurity"
+    -"cloud-computing"
+    -"web-development"
+    -"ai"
+    -"data-science"
+    -"devops"
+    -"iot"
+    -"big-data"
+  exeperience_level: "intermediate" # beginner, intermediate, expert
+  min_relevance_score: 0.3 # Score minimum de pertinence pour les notifications (0 à 1)
+
+nlp:
+  - enabled: true
+  - min_confidence: 0.7 # Confiance minimale pour les analyses NLP (0 à 1)
+  - update_interval: 86400 # Intervalle de mise à jour des modèles NLP en minutes (par défaut 24h)
