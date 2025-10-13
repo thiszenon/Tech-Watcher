@@ -34,7 +34,8 @@ class GitHubClient:
                 'q':f'language:{language} stars:>100',
                 'sort': 'stars',
                 'order': 'desc',
-                'per_page':10
+                'per_page':10 #nombre de repos à renvoyer 
+
             }#modification ulterieur voir fonctionnement
 
             response = self.session.get(url,params=params,timeout=10)
@@ -63,6 +64,9 @@ class GitHubClient:
         except Exception as ex:
             logger.error(f"Erreur inattendue GitHub: {ex}")
             return []
+    #End get_trending_repos
+
+    
         
 
 

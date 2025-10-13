@@ -2,7 +2,7 @@
 
 sources:
   github:
-    enabled: false
+    enabled: true
     check_interval: 60
     languages: ["Python", "JavaScript", "java"]
 
@@ -20,7 +20,7 @@ sources:
 notifications:
   enabled: true
   sound: true
-  duration: 10 # Durée en secondes
+  duration: 20 # Durée en secondes
   max_per_hours: 6 # Nombre maximum de notifications par heure
 
 user:

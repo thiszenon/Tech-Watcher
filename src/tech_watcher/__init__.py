@@ -11,8 +11,10 @@ __email__ = "jonathan.nyata@gmail.com"
 try:
     from .core.watcher import TechWatcher
     from .core.config_manager import ConfigManager
+    from ..tech_watcher.data_sources import GitHubClient
+    from ..tech_watcher.notification import DesktopNotifier
 except ImportError:
     ...
     pass
 
-__all__ = ["TechWatcher", "ConfigManager", "__version__"]
+__all__ = ["TechWatcher", "ConfigManager", "__version__","GitHubClient","DesktopNotifier"]
