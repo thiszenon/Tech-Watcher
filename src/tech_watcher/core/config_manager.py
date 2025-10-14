@@ -9,11 +9,12 @@ import yaml
 from typing import Dict, Any 
 
 class ConfigManager:
-    """ Ici, on gère la configuration de l'application"""
+    """ Ici, Gestion de la configuration de l'application"""
 
     def __init__(self, config_path:str = None ):
         self.config_path = config_path or self._get_default_config_path()
         self.config = self._load_config()
+    #End __init__
 
     def _get_default_config_path(self) -> str:
         """ Retourne le chemin par defaut du fichier de configuration"""
@@ -26,6 +27,8 @@ class ConfigManager:
         config_path = os.path.join(project_root,'config','default_config.yaml')
 
         return os.path.abspath(config_path) 
+    #End _get_default_config_path
+
     
     def _load_config(self) -> Dict[str,Any]:
         """ Ici, on charge la configuration depuis le fichier YAML"""
@@ -39,14 +42,16 @@ class ConfigManager:
         except Exception as ex:
             print(f"Check-fall: Erreur chargement config -> {ex}")
             return self._get_default_config()
+    #End _load_config
         
     def _get_default_config(self,) -> Dict[str,Any]:
         """Retourne une configuration par défaut si le fichier est introuvable """
         return{
             'sources':{'github':{'enabled':True}},
             'notifications':{'enabled':True},
-            'user': {'interests': ['python']}
+            'user': {'interests': ['python']} # A modifier dans la phase 2
         }
+    #End _get_default_config
     
     def get(self,key:str, default=None):
         """ Récupère une valeur de configuration"""
@@ -59,6 +64,11 @@ class ConfigManager:
             else:
                 return default
         return value
+    #End get
+
+
+###### PHASE 1
+
         
 
 

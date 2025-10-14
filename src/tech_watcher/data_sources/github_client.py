@@ -23,15 +23,22 @@ class GitHubClient:
             'Accept': 'application/vnd.github.v3+json',
             'User-Agent': 'Tech-Watcher-App'
         })
+    #End __init__
+
     def get_trending_repos(self, language: str = "python")->List[Dict[str,Any]]:
         """
-        Récuperer les repositories populaires GitHub
+        Récuperer les repositories populaires GitHub avec 100 étoiles sans filtre de date pour l'instant 
         """
         try:
             #Utilisation de l'API de recherche GitHub.
+            from datetime import datetime, timedelta
+            
+            #Que les trends de moins de 30 jours pour la nouveauté
+            date_30_days_ago = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+
             url = f"{self.base_url}/search/repositories"
             params = {
-                'q':f'language:{language} stars:>100',
+                'q':f'language:{language} created:>={date_30_days_ago} stars:>20', #que les repos avec comme lang : PYTHON et qui ont plus de 20 étoils i.e populaire
                 'sort': 'stars',
                 'order': 'desc',
                 'per_page':10 #nombre de repos à renvoyer 

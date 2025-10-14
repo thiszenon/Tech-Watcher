@@ -18,7 +18,7 @@ with open("requirements.txt","r",encoding="utf-8") as file_r:
 # Version dynamique
 def get_version():
     """Retourne la version du package """
-    version_file = os.path.join("src","tech_watcher","__init__.py") # pas encore créer
+    version_file = os.path.join("src","tech_watcher","__init__.py") 
     try:
         with open(version_file,"r",encoding="utf-8") as file_r:
             for line in file_r:

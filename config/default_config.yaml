@@ -20,7 +20,7 @@ sources:
 notifications:
   enabled: true
   sound: true
-  duration: 20 # Durée en secondes
+  duration: 10 # Durée en secondes
   max_per_hours: 6 # Nombre maximum de notifications par heure
 
 user:
